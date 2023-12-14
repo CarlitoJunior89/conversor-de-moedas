@@ -1,4 +1,4 @@
-Documentação do Aplicativo de Conversão de Moedas
+Aplicativo de Conversão de Moedas
 Versão: 1.0
 Data: 2023-12-13
 Autor: Carltio Antonio de Sousa Júnior
