@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<TextView>(R.id.textView2)
-        val buttonConverter = findViewById<Button>(R.id.button)
+        result = findViewById<TextView>(R.id.txt_result)
+        val buttonConverter = findViewById<Button>(R.id.btn_converter)
 
         buttonConverter.setOnClickListener{
             converter()
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             else      ->"Peso"
 
         }
-       val editField = findViewById<EditText>(R.id.textView)
+       val editField = findViewById<EditText>(R.id.edit_field)
         val value = editField.text.toString()
         if (value.isEmpty())
             return
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             val conn = url.openConnection() as HttpsURLConnection
             try {
                 val data = conn.inputStream.bufferedReader().readText()
-                val obj = JSONObject
+                val obj = JSONObject(data)
                 runOnUiThread {
                     val res = obj.getDouble("${currency}_BRL")
                     result.text = "R$${"%.4f".format(value.toDouble() * res)}"
